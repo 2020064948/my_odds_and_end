@@ -10,3 +10,8 @@ WebP 파일은 RIFF(Resource Interchange File Format) 구조를 따르며, 파�
 
 폴리글로트는 binary header에서 RIFF와 WebP로 위장하고 이미지 데이터 끝이나 청크 사이에 다른 포맷의 데이터를 삽입하는 것으로 공격하는데,
 이는 파일 크기 대조 결과를 청크 분석 단계(Structural Analysis)에 보내는 것으로 기능 분리를 할 것이다.
+
+실제 코드를 작성하는 단계에서 #pragma pack(n)과 __attribute__((packed))라는 기능에 대해 알게 되었다.
+두 코드는 각각 MSVC (windows / visual studio)와 GCC / Clang(linux, macOS)에서 쓰이는 것으로,
+padding으로 인한 여백을 제거하고 패킷 혹은 파일의 값들을 정렬하기 위한 것이다.
+첫 번째는 아래에 적힌 모든 구조체에 적용되고, 두 번째는 해당 속성을 붙인 구조체에만 적용된다.
